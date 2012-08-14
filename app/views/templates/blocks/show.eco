@@ -1,0 +1,38 @@
+<div class="container">
+	<div class="cell">
+		<div class="box">
+
+		<% if @model.class == "Image": %>
+			<a href="<%= @model.image.display.url %>" class="image lightbox"><img src='<%= @model.image.thumb.url %>' /></a>
+		<% else if @model.class == "Link" : %>
+			<div class="text"><p><a href="<%= @model.source.url %>" target="_blank"><%= @model.title %></a></p>
+			<% if @model.description && @model.description.plaintext: %>
+				<%- @model.description.plaintext.truncate(10) %>
+			<% end %>
+			</div>
+		<% else if @model.class == "Media" : %>
+			<div class="text">
+			<p>
+				<a href="<%= @model.source.url %>" target="_blank"><%= @model.title %></a>
+			</p>
+			<% if @model.description && @model.description.plaintext: %>
+				<%- @model.description.plaintext.truncate(10) %>
+			<% end %>
+			</div>
+		<% else if @model.class == "Text" : %>
+			<div class="text">
+			<p><%= @model.title %></a></p>
+			<%- @model.content.plaintext.truncate(10) %>
+			</div>
+		<% else if @model.kind == "default" || @model.class == "Channel" : %>
+			<% if @model.isRoot: %>
+				<div class="title channel <%= @model.status %>"><%= @model.title %></div>
+			<% else: %>
+				<a href="#" data-slug="<%= @model.slug %>" class="channel <%= @model.status %>"><%= @model.title %></a>
+			<% end %>
+			<div class="loader"><img src="images/lightbox-ico-loading.gif"/></div>
+		<% end %>
+		</div>
+	</div>
+</div>
+<div class="shadow"></div>

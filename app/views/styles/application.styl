@@ -1,0 +1,115 @@
+// nib is a powerful lib for stylus that provides cross-browser css3 mixins.
+@import 'nib'
+
+@import '_base'
+@import '_ui'
+
+// Import your styles here
+
+@import '_states'
+@import '_layout'
+@import '_responsive'
+
+html,body
+	margin:0
+	padding:0
+	height:100%
+	width:100%
+	background:#eee
+	font-family: 'garamond_premr_proregular'
+	overflow:hidden
+	// font-weight: normal
+	// font-style: normal
+
+a:hover
+	text-decoration:none
+
+.public, .available
+	color:#39AA4C
+.closed
+	color:#D7B50B
+
+#app.grabbed
+	cursor:grabbing
+	cursor:-moz-grabbing
+	cursor:-webkit-grabbing
+
+#app
+	position:absolute
+	// background:#ff0000
+	width:100%
+	height:100%
+	cursor:grab
+	cursor:-moz-grab
+	cursor:-webkit-grab
+
+	#container
+		position:relative
+		top:50%
+		left:50%
+
+
+
+.block
+	position: absolute
+	// background: -webkit-gradient(top, rgb(255,255,255) 100%, rgb(100,238,238) 0%)
+
+	// margin:auto
+	width:1px
+	height:1px
+	overflow:visible
+	text-align:center
+	cursor:default
+
+	.shadow
+		position:absolute
+		z-index:-1
+		width: 220px
+		height: 220px
+		left:-110px
+		top:-110px
+		pointer-events:none
+		-webkit-box-shadow: 0 0 100px rgba(0,0,0,0)
+		// -webkit-transition-delay: box-shadow 2s ease-out
+
+	.container
+		position:absolute
+		// border:2px #fff solid
+		width: 220px
+		height: 220px
+		left:-110px
+		top:-110px
+		// padding-top:50%
+		// padding-left:50%
+		display:table
+
+		.cell
+			background:#fff
+			display: table-cell
+			vertical-align:middle
+			padding:5px
+			// left:-50%
+			// top:-50%
+			// text-align:center
+
+			.box
+
+				.channel
+					font-size:24px
+
+				.loader
+					display:none
+
+				.text
+					padding:10px
+
+
+#container
+	background:#ff0000
+	position:relative
+	width:1px
+	height:1px
+	overflow:visible
+
+	#offset
+		position:absolute
