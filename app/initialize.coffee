@@ -1,5 +1,3 @@
-# App Namespace
-# Change `Hipster` to your app's name
 @Browser ?= {}
 Browser.Routers ?= {}
 Browser.Views ?= {}
@@ -19,10 +17,9 @@ UpdateLoop = ->
 	null
 
 $ ->
-	# Load App Helpers
 	require '../lib/app_helpers'
 
-	console.log("@",@,Browser)
+
 	Browser.router = new Router()
 	Backbone.history.start() #pushState: yes
 	UpdateLoop()

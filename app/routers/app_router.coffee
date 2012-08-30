@@ -1,12 +1,15 @@
 AppView = require '../views/app_view'
+MacroView = require '../views/physics/macro_view'
 # Channel = require 'models/channel'
 
 module.exports = class AppRouter extends Backbone.Router
 	defaultChannel: 'semblance'
 
 	routes:
-		':slug' : "channel"
+		# ':slug' : "channel"
+		':slug' : 'macro'
 		'': "index"
+		# '' : 'macro'
 
 	route: (route, name, cb) ->
 		console.log('route yo ',route,name)
@@ -22,19 +25,26 @@ module.exports = class AppRouter extends Backbone.Router
 		@view.addConnection(connectionSlug)
 
 	channel: (slug) ->
-		console.log('BOOO BOOO ',slug)
 		return if slug == @current_channel
 		@current_channel = slug
-
-		console.log('rout index',slug)
 
 		@model = new Channel id:slug
 		@view = new AppView(channel:@model)
 		@render @view.render().el
 		@
 
-	index: () =>
-		@navigate(@defaultChannel,true)
+	macro: (slug) =>
+		return if slug == @current_channel
+		@current_channel = slug
+		@model = new Channel id:slug
+		@view = new MacroView(channel:@model)
+
+		@render @view.el
+		@view.render()
+
+	index: =>
+		# @navigate(@defaultChannel,true)
+		@macro(@defaultChannel)
 
 	render: (el) ->
 		$('#body').html el

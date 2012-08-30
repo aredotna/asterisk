@@ -1,11 +1,8 @@
 # Asterisk
 
-Requires brunch!
-
+Requirements:
     $ npm install brunch
 
+Directions:
+	$ brunch watch -s
 
-
-With the hipster skeleton...
-
-![image](http://www.latimes.com/media/photo/2011-07/63171841.jpg)

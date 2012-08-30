@@ -833,6 +833,19 @@ a:hover {
   top: 50%;
   left: 50%;
 }
+#app #label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  color: #fff;
+  font-family: Menlo, Monaco, 'Lucida Console', Arial, 'Courier New', monospaced;
+  font-size: 12px;
+  padding: 20px;
+}
+#app #label a {
+  color: #fff;
+}
 .block {
   position: absolute;
   width: 1px;
